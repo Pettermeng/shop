@@ -1,0 +1,215 @@
+/* 
+    Google Font 
+*/
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+body {
+    font-family: "Outfit", serif !important;
+    font-optical-sizing: auto;
+    font-weight: auto;
+    font-style: normal;
+
+    position: relative;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* 
+    Global Style 
+*/
+ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none;
+} 
+a {
+    text-decoration: none !important;
+}
+.text-red {
+    color: var(--red);
+}
+.fw-500 {
+    font-weight: 500;
+}
+
+/*
+    Global Delay 
+*/
+.login form button,
+.login form button:hover,
+.login nav ul li.active,
+.login nav ul li.active:hover,
+.card-4 .thumbnail img,
+.card-4 .thumbnail:hover img,
+.search-popup button,
+.search-popup button:hover {
+    transition: all .3s ease-in-out;
+}
+
+/* 
+    Global Color 
+*/
+:root {
+    --purple   : #4d6bfe;
+    --purple-1 : #4d6bfed6;
+    --black    : #000000;
+    --white    : #ffffff;
+    --white-1  : #EAF0F9;
+    --red      : #da292e;
+    
+    --bg-01  : #0000008a; 
+}
+
+.container {
+    max-width: 1280px !important;
+}
+section {
+    padding: 2rem 0;
+}
+
+/* 
+    Header 
+*/
+header {
+    z-index: 999;
+    top: 0;
+    width: 100%;
+    position: sticky;
+    background-color: var(--purple);
+}
+header a {
+    font-size: 1.1rem;
+    color: var(--white);
+    font-weight: 500;
+}
+header .search img {
+    width: 2rem;
+    cursor: pointer;
+}
+
+/* 
+    Footer 
+*/
+footer {
+    background-color: var(--white-1);
+}
+
+/* 
+    Search Popup 
+*/
+/* 
+    Search Popup 
+*/
+.overflow-hidden {
+    overflow: hidden;
+}
+.search-popup {
+    z-index: 1000;
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed; /* Changed to fixed */
+
+    background-color: var(--bg-01);
+}
+.search-popup .block {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-popup form {
+    position: relative;
+    width: 25rem;
+    padding: 3rem 2rem;
+    background-color: var(--white);
+}
+.search-popup form .box {
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    border: 1px solid var(--purple);
+    outline: none;
+}
+.search-popup button {
+    border: none;
+    color: var(--white);
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    background-color: var(--purple);
+}
+.search-popup button:hover {
+    background-color: var(--purple-1);
+}
+.search-popup form .cancel {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.search-popup form .cancel {
+    cursor: pointer;
+}
+.search-popup .close {
+    width: 2rem;
+}
+
+/*
+    Card 4 
+*/
+.card-4 .thumbnail {
+    overflow: hidden;
+    position: relative;
+}
+.card-4 .thumbnail .discount-status {
+    z-index: 1;
+    top: .5rem;
+    left: .5rem;
+    position: absolute;
+    color: var(--white);
+    background-color: var(--red);
+}
+.card-4 .thumbnail:hover img {
+    transform: scale(1.09) rotate( 0.7deg);
+}
+.card-4 figcaption {
+    color: var(--black);
+}
+.card-4 figcaption h6 {
+    font-size: 1.2rem;
+}
+
+/*
+    Highlight Title 
+*/
+.highlight-title h3::after {
+    content: '';
+    width: 5rem;
+    height: .5rem;
+    display: block;
+    border-bottom: 3px solid var(--purple);
+}
+
+/* 
+    Alert Message 
+*/
+.message-box {
+    padding: 0 5rem;
+}
+.alert-msg {
+    width: 100%;
+    padding: .5rem;
+    color: var(--white);
+    border-radius: .25rem;
+}
+.alert-msg.success {
+    background-color: var(--purple-1);
+}
+.alert-msg.error {
+    background-color: var(--red);
+}

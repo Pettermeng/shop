@@ -1,0 +1,39 @@
+.login figure img {
+    height: 45rem;
+    object-fit: cover;
+}
+.login nav ul li {
+    cursor: pointer;
+}
+.login nav ul li.active {
+    color: var(--white);
+    background-color: var(--purple);
+}
+.login nav ul li.active:hover {
+    background-color: var(--purple-1);
+}
+
+.login form {
+    padding: 2rem 5rem;
+}
+.login form button,
+.login form label,
+.login form input {
+    width: 100%;
+}
+.login form input {
+    border: 1px solid var(--black);
+}
+.login form input:focus-visible {
+    outline: none;
+    border: 1px solid var(--black);
+}
+.login form button {
+    border: none;
+    outline: none;
+    color: var(--white);
+    background-color: var(--purple);
+}
+.login form button:hover {
+    background-color: var(--purple-1);
+}
