@@ -18,6 +18,11 @@ html {
 /* 
     Global Style 
 */
+body::-webkit-scrollbar {
+    width: 5px; 
+    height: 5px;
+    background: var(--bg-01);
+}
 ul {
     margin: 0 !important;
     padding: 0 !important;
@@ -36,6 +41,11 @@ a {
 /*
     Global Delay 
 */
+.add-cart,
+.add-cart:hover
+.variant ul li,
+.variant ul li.active,
+.variant ul li:hover,
 .login form button,
 .login form button:hover,
 .login nav ul li.active,
@@ -54,6 +64,8 @@ a {
     --purple   : #4d6bfe;
     --purple-1 : #4d6bfed6;
     --black    : #000000;
+    --black-1  : #000000b0;
+    --black-2  : #0000009e;
     --white    : #ffffff;
     --white-1  : #EAF0F9;
     --red      : #da292e;
@@ -83,9 +95,14 @@ header a {
     color: var(--white);
     font-weight: 500;
 }
+header .account img,
 header .search img {
     width: 2rem;
     cursor: pointer;
+}
+header .account {
+    display: flex;
+    gap: 1rem;
 }
 
 /* 
@@ -117,7 +134,7 @@ footer {
     right: 0;
     position: fixed; /* Changed to fixed */
 
-    background-color: var(--bg-01);
+    backdrop-filter: blur(4px);
 }
 .search-popup .block {
     height: 100%;
@@ -128,8 +145,9 @@ footer {
 .search-popup form {
     position: relative;
     width: 25rem;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem 2rem;
     background-color: var(--white);
+    box-shadow: 0 2px 7px rgba(0,0,0,.15);
 }
 .search-popup form .box {
     padding: .5rem 1rem;
@@ -149,8 +167,8 @@ footer {
 }
 .search-popup form .cancel {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: .5rem;
+    top: .5rem;
 }
 .search-popup form .cancel {
     cursor: pointer;
@@ -212,4 +230,106 @@ footer {
 }
 .alert-msg.error {
     background-color: var(--red);
+}
+
+/*
+    Cart 
+*/
+.cart figure img {
+    width: 7rem;
+    object-fit: cover;
+}
+.cart figcaption img {
+    width: 2rem;
+}
+.cart button {
+    outline: none;
+    border: none;
+    background: transparent;
+}
+.cart h5 {
+    color: var(--purple);
+}
+.cart .btn-checkout {
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: .3rem;
+    background-color: var(--purple);
+}
+
+/*
+    Checkout 
+*/
+.checkout .user-info h6 .number {
+    padding: .4rem .8rem;
+    color: var(--white);
+    border-radius: 100%;
+    background-color: var(--black);
+}
+.checkout .user-info .box {
+    padding: .5rem;
+    width: 100%;
+    border: 1px solid var(--black);
+}
+.checkout .user-info .box:focus-visible {
+    outline: none;
+    border: 1px solid var(--black);
+}
+.checkout .user-info button {
+    border: none;
+    outline: none;
+    color: var(--white);
+    background-color: var(--purple);
+}
+
+.checkout .cod img {
+    width: 3rem;
+}
+.checkout .summary ul {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.checkout .summary ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.checkout .summary form {
+    width: 100%;
+}
+.checkout .summary button {
+    padding: .7rem !important;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: var(--white);
+    background-color: var(--purple);
+}
+.t-black {
+    color: var(--black-2) !important;
+}
+
+.order-success .row {
+    padding: 10rem;
+}
+.order-success img {
+    width: 8rem;
+}
+
+.account .order-item {
+    padding: 1rem;
+    cursor: pointer;
+    background-color: var(--white-1);
+}
+.account ul li {
+    border-bottom: 1px solid var(--black-1);
+}
+.account table {
+    width: 100%;
+}
+.account table td,
+.account table th {
+    padding: .3rem;
+    border: 1px solid var(--black-1);
 }

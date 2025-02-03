@@ -24,5 +24,11 @@ $(document).ready(function () {
         $('.login-form').fadeIn(500);
         $('.register-form').hide();
     })
+
+    // Select variant   
+    $('.variant ul li').click(function(){
+        $(this).addClass('active')
+        $(this).siblings().removeClass('active')
+    })
     
 });

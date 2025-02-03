@@ -1,0 +1,73 @@
+.cart-variant {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.variant ul {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+}
+.variant ul li {
+    cursor: pointer;
+    padding: .3rem 1rem;
+    border-radius: .3rem;
+    background-color: var(--white-1);
+    border: 1px solid var(--white-1);
+}
+.variant ul li:hover {
+    border: 1px solid var(--purple);
+}
+.variant ul li.active {
+    color: var(--white);
+    border: 1px solid var(--purple);
+    background-color: var(--purple);
+}
+.variant ul li.disabled {
+    color: var(--white);
+    border: 1px solid var(--black-1);
+    background-color: var(--black-1);
+}
+
+.add-cart {
+    border: none;
+    outline: none;
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: .3rem;
+    background-color: var(--purple);
+}
+.add-cart:hover {
+    background-color: var(--purple-1);
+}
+
+/*
+    Product 
+*/
+.pagination ul li a {
+    color: var(--purple);
+    border-radius: .3rem;
+    padding: .5rem .8rem;
+    background-color: var(--white-1);
+}
+.pagination ul li a.active {
+    color: var(--white);
+    background-color: var(--purple);
+}
+.sidebar ul li {
+    padding: .5rem;
+}
+.sidebar ul li:nth-child(odd) {
+    background-color: var(--white-1);
+}
+.sidebar ul li a {
+    width: 100%;
+    color: var(--purple);
+    display: inline-block;
+}
+.sidebar .promotion {
+    padding: .5rem;
+    color: var(--white);
+    background-color: var(--purple);
+}

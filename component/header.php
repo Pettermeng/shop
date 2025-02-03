@@ -7,8 +7,9 @@
         <!-- theme style -->
          <link rel="stylesheet" href="assets/css/theme.css">
          <link rel="stylesheet" href="assets/css/login.css">
+         <link rel="stylesheet" href="assets/css/product.css">
         <!-- bootstrap -->
-         <link href="assets/boostrap/bootstrap.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
 
@@ -21,19 +22,24 @@
                 </div>
                 <ul class=" d-flex align-items-center justify-content-between gap-5">
                     <li>
-                        <a href="">Home</a>
+                        <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="">Shop</a>
+                        <a href="shop.php">Shop</a>
                     </li>
                     <li>
-                        <a href="">Blog</a>
+                        <a href="shop.php?product=promotion">Promotion</a>
                     </li>
                 </ul>
                 <div class="other d-flex align-items-center gap-3">
                     <div class="account">
-                        <a href="" class="d-none">Account</a>
-                        <a href="login.php">Login | Register</a>
+                        <a href="cart.php" class="">
+                            <img src="assets/image/cart.svg" alt="">
+                        </a>
+                        <a href="account.php" class="">
+                            <img src="assets/image/user.svg" alt="">
+                        </a>
+                        <a href="login.php" class="d-none">Login | Register</a>
                     </div>
                     <div class="search">
                         <img src="assets/image/search.svg" alt="">

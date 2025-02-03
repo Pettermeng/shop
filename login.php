@@ -18,10 +18,10 @@
                     </nav>
 
                     <div class="message-box mt-4">
-                        <div class="alert-msg success">
+                        <div class="alert-msg success d-none">
                             Account Create Successfully!
                         </div>
-                        <div class="alert-msg error d-none">
+                        <div class="alert-msg error">
                             Account Create Failed!
                         </div>
                     </div>

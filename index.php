@@ -29,7 +29,7 @@
                             </div>
                             <figcaption class="py-3">
                                 <div class="d-flex gap-3 mb-2">
-                                    <div class="regular-price text-red fw-500">US $25</div>
+                                    <div class="regular-price text-red fw-500"><strike>US $25</strike></div>
                                     <div class="sale-price fw-500">US $15</div>
                                 </div>
                                 <h6>Loose Fit T-Shirts</h6>
@@ -45,7 +45,7 @@
                             </div>
                             <figcaption class="py-3">
                                 <div class="d-flex gap-3 mb-2">
-                                    <div class="regular-price text-red fw-500">US $25</div>
+                                    <div class="regular-price text-red fw-500"><strike>US $25</strike></div>
                                     <div class="sale-price fw-500">US $15</div>
                                 </div>
                                 <h6>Loose Fit T-Shirts</h6>
@@ -61,7 +61,7 @@
                             </div>
                             <figcaption class="py-3">
                                 <div class="d-flex gap-3 mb-2">
-                                    <div class="regular-price text-red fw-500">US $25</div>
+                                    <div class="regular-price text-red fw-500"><strike>US $25</strike></div>
                                     <div class="sale-price fw-500">US $15</div>
                                 </div>
                                 <h6>Loose Fit T-Shirts</h6>
@@ -77,7 +77,7 @@
                             </div>
                             <figcaption class="py-3">
                                 <div class="d-flex gap-3 mb-2">
-                                    <div class="regular-price text-red fw-500">US $25</div>
+                                    <div class="regular-price text-red fw-500"><strike>US $25</strike></div>
                                     <div class="sale-price fw-500">US $15</div>
                                 </div>
                                 <h6>Loose Fit T-Shirts</h6>
@@ -107,7 +107,7 @@
                             </div>
                             <figcaption class="py-3">
                                 <div class="d-flex gap-3 mb-2">
-                                    <div class="regular-price text-red fw-500">US $25</div>
+                                    <div class="regular-price text-red fw-500"><strike>US $25</strike></div>
                                     <div class="sale-price fw-500">US $15</div>
                                 </div>
                                 <h6>Loose Fit T-Shirts</h6>
@@ -123,7 +123,7 @@
                             </div>
                             <figcaption class="py-3">
                                 <div class="d-flex gap-3 mb-2">
-                                    <div class="regular-price text-red fw-500">US $25</div>
+                                    <div class="regular-price text-red fw-500"><strike>US $25</strike></div>
                                     <div class="sale-price fw-500">US $15</div>
                                 </div>
                                 <h6>Loose Fit T-Shirts</h6>
@@ -139,7 +139,7 @@
                             </div>
                             <figcaption class="py-3">
                                 <div class="d-flex gap-3 mb-2">
-                                    <div class="regular-price text-red fw-500">US $25</div>
+                                    <div class="regular-price text-red fw-500"><strike>US $25</strike></div>
                                     <div class="sale-price fw-500">US $15</div>
                                 </div>
                                 <h6>Loose Fit T-Shirts</h6>
@@ -155,7 +155,7 @@
                             </div>
                             <figcaption class="py-3">
                                 <div class="d-flex gap-3 mb-2">
-                                    <div class="regular-price text-red fw-500">US $25</div>
+                                    <div class="regular-price text-red fw-500"><strike>US $25</strike></div>
                                     <div class="sale-price fw-500">US $15</div>
                                 </div>
                                 <h6>Loose Fit T-Shirts</h6>
