@@ -36,7 +36,7 @@
                             <div class="cart">
                                 <form action="" method="post">
                                     <input type="hidden" name="product-id" value="1">
-                                    <input type="number" class="qty" name="quantity" value="1">
+                                    <input type="number" class="qty" name="quantity" value="1" min="1">
                                     <input type="submit" class="add-cart" value="Add to Cart">
                                 </form>
                             </div>

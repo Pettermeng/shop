@@ -76,9 +76,6 @@ a {
     --bg-01  : #0000008a; 
 }
 
-.container {
-    max-width: 1280px !important;
-}
 section {
     padding: 2rem 0;
 }
