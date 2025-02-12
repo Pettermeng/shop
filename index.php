@@ -167,6 +167,84 @@
         </div>
     </section>
 
+    <!-- Category 4 cards -->
+    <section class="card-4 category">
+        <div class="container">
+            <div class="highlight-title mb-4">
+                <h3>Our Categories</h3>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <div class="row">
+                        <div class="col-3">
+                            <figure>
+                                <a href="#">
+                                    <div class="thumbnail relative d-flex align-items-center justify-content-center">
+                                        <img src="assets/image/man-category-thumbnail.jpg" alt="" class="w-100">
+                                        <figcaption>Man</figcaption>
+                                    </div>
+                                </a>
+                            </figure>
+                        </div>
+
+                        <div class="col-3">
+                            <figure>
+                                <a href="#">
+                                    <div class="thumbnail relative d-flex align-items-center justify-content-center">
+                                        <img src="assets/image/woman-category-thumbnail.jpg" alt="" class="w-100">
+                                        <figcaption>Woman</figcaption>
+                                    </div>
+                                </a>
+                            </figure>
+                        </div>
+
+                        <div class="col-3">
+                            <figure>
+                                <a href="#">
+                                    <div class="thumbnail relative d-flex align-items-center justify-content-center">
+                                        <img src="assets/image/boy-category-thumbnail.jpg" alt="" class="w-100">
+                                        <figcaption>Boy</figcaption>
+                                    </div>
+                                </a>
+                            </figure>
+                        </div>
+
+                        <div class="col-3">
+                            <figure>
+                                <a href="#">
+                                    <div class="thumbnail relative d-flex align-items-center justify-content-center">
+                                        <img src="assets/image/girl-category-thumbnail.jpg" alt="" class="w-100">
+                                        <figcaption>Girl</figcaption>
+                                    </div>
+                                </a>
+                            </figure>
+                        </div>
+                                                <div class="col-3">
+                            <figure>
+                                <a href="#">
+                                    <div class="thumbnail relative d-flex align-items-center justify-content-center">
+                                        <img src="assets/image/man-category-thumbnail.jpg" alt="" class="w-100">
+                                        <figcaption>Man</figcaption>
+                                    </div>
+                                </a>
+                            </figure>
+                        </div>
+                        <div class="col-3">
+                            <figure>
+                                <a href="#">
+                                    <div class="thumbnail relative d-flex align-items-center justify-content-center">
+                                        <img src="assets/image/man-category-thumbnail.jpg" alt="" class="w-100">
+                                        <figcaption>Man</figcaption>
+                                    </div>
+                                </a>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <?php include 'component/footer.php'; ?>

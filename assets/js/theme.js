@@ -23,12 +23,5 @@ $(document).ready(function () {
         $('.btn-register').removeClass('active')
         $('.login-form').fadeIn(500);
         $('.register-form').hide();
-    })
-
-    // Select variant   
-    $('.variant ul li').click(function(){
-        $(this).addClass('active')
-        $(this).siblings().removeClass('active')
-    })
-    
+    })   
 });

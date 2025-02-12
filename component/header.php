@@ -17,7 +17,7 @@
             <div class="container d-flex align-items-center justify-content-between">
                 <div class="logo">
                     <a href="/project">
-                        <img src="https://placehold.co/150x80" alt="">
+                        <img src="https://placehold.co/150x60" alt="">
                     </a>
                 </div>
                 <ul class=" d-flex align-items-center justify-content-between gap-5">
@@ -36,10 +36,8 @@
                         <a href="cart.php" class="">
                             <img src="assets/image/cart.svg" alt="">
                         </a>
-                        <a href="account.php" class="">
-                            <img src="assets/image/user.svg" alt="">
-                        </a>
-                        <a href="login.php" class="d-none">Login | Register</a>
+                        <a href="account.php" class="user-account">Account</a>
+                        <a href="login.php" class="user-account">Login | Register</a>
                     </div>
                     <div class="search">
                         <img src="assets/image/search.svg" alt="">

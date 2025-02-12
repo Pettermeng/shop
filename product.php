@@ -22,17 +22,21 @@
                         <hr>
                         <div class="cart-variant">
                             <div class="variant">
+                                <h6>Color Available</h6>
+                                <ul class="color">
+                                    <li>
+                                        <div class="circle mb-1" style="background: red;"></div>
+                                    </li>
+                                </ul>
                                 <h6>Size Available</h6>
                                 <ul>
-                                    <li class="disabled">S</li>
                                     <li>M</li>
-                                    <li>L</li>
-                                    <li>XL</li>
                                 </ul>
                             </div>
                             <div class="cart">
                                 <form action="" method="post">
-                                    <input type="hidden" name="variant_id" value="1">
+                                    <input type="hidden" name="product-id" value="1">
+                                    <input type="number" class="qty" name="quantity" value="1">
                                     <input type="submit" class="add-cart" value="Add to Cart">
                                 </form>
                             </div>
