@@ -11,11 +11,15 @@
         <section class="login-register">
             <div class="container">
                 <form action="" method="post">
-                    <span>Username - Email</span>
-                    <input type="text" name="username">
-                    <span>Password</span>
-                    <input type="password" name="password">
-                    <input type="submit" name="btn-login" value="Login">
+                    <div class="block">
+                        <label>Username | Email</label>
+                        <input type="text" name="username" class="box">
+                    </div class="block">
+                    <div class="block">
+                        <label>Password</label>
+                        <input type="password" name="password" class="box">
+                    </div>
+                    <input type="submit" name="btn-login" value="Login" class="button">
                 </form>
             </div>
         </section>
