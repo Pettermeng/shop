@@ -175,3 +175,30 @@ section {
 .content .top label {
     color: var(--purple);
 }
+
+/* 
+    List Data 
+*/
+.block-list-data img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+}
+.block-add-data form .row {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.block-add-data form label {
+    margin-bottom: .3rem;
+}
+
+.widget-scroll-y {
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+table thead {
+    top: 0;
+    position: sticky;
+}
