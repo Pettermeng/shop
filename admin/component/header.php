@@ -41,6 +41,10 @@
                                 <a href="category.php">Category</a>
                             </li>
                             <li data-page="order">
+                                <img src="assets/image/user.svg" alt=""> 
+                                <a href="order.php">Customer</a>
+                            </li>
+                            <li data-page="order">
                                 <img src="assets/image/order.svg" alt=""> 
                                 <a href="order.php">Order</a>
                             </li>
