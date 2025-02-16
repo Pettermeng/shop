@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+    include "../function.php";
     $current_page = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 <script>
@@ -17,7 +18,7 @@
     <body>
         <div class="container-fluid">
             <div class="row dashboard">
-                <div class="col-2 sidebar">
+                <div class="col-3 sidebar">
                     <div class="top logo">
                         <h3>CodeLab Academy</h3>
                     </div>
@@ -42,7 +43,7 @@
                             </li>
                             <li data-page="order">
                                 <img src="assets/image/user.svg" alt=""> 
-                                <a href="order.php">Customer</a>
+                                <a href="">Customer</a>
                             </li>
                             <li data-page="order">
                                 <img src="assets/image/order.svg" alt=""> 
@@ -63,7 +64,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-10 content">
+                <div class="col-9 content">
                     <div class="top">
                         <h6>Welcome back <label>[ Petter Meng ]</label></h6>
                     </div>

@@ -9,7 +9,7 @@
     </head>
     <body>
         <section class="login-register">
-            <div class="container">
+            <div class="content">
                 <form action="" method="post">
                     <div class="block">
                         <label>Username</label>

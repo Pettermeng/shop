@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3>WELCOME TO YOUR ACCOUNT: Petter Meng</h3>
+                    <h3>WELCOME TO YOUR ACCOUNT: [Petter Meng]</h3>
                     <hr>
                     <h3>Your Order</h3>
                     <ul class="mt-4 list-order">
