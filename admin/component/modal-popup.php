@@ -7,8 +7,9 @@
       </div>
       <div class="modal-footer">
         <form action="" method="post">
+          <input type="hidden" name="remove-model" class="remove-model">
             <input type="hidden" name="remove-id" class="remove-id">
-            <button type="button" class="btn btn-danger">Confirm</button>
+            <button type="submit" name="btn-remove" class="btn btn-danger">Confirm</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         </form>
       </div>

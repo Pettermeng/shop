@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <?php
-    include "../function.php";
+    include('C:/xampp/htdocs/shop/admin/function.php');
+
+    if(empty($_SESSION['user_id'])) {
+        header('Location: login.php');
+    }
+
     $current_page = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 <script>
@@ -60,12 +65,12 @@
                     <ul>
                         <li>
                             <img src="assets/image/logout.svg" alt="">
-                            <a href="" class="logout">Logout</a>
+                            <a href="logout.php" class="logout">Logout</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-9 content">
                     <div class="top">
-                        <h6>Welcome back <label>[ Petter Meng ]</label></h6>
+                        <h6>Welcome back <label>[ <?php echo get_current_user_name() ?> ]</label></h6>
                     </div>
                     <hr>

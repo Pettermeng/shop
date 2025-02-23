@@ -3,7 +3,9 @@ $(document).ready(function () {
     // Action Remove Data
     $(document).on('click', '.btn-remove', function () {
         let id = $(this).attr('data-id')
+        let model = $(this).attr('data-model')
         $('.remove-id').val(id)
+        $('.remove-model').val(model)
     })
 
     // Active Menu

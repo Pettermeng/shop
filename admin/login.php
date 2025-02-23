@@ -6,13 +6,14 @@
         <title>Login</title>
         <link rel="stylesheet" href="assets/css/theme.css">
         <?php include "component/external-css-import.php" ?>
+        <?php include "function.php" ?>
     </head>
     <body>
         <section class="login-register">
             <div class="content">
                 <form action="" method="post">
                     <div class="block">
-                        <label>Username | Email</label>
+                        <label>Username | Phone</label>
                         <input type="text" name="username" class="box">
                     </div class="block">
                     <div class="block">

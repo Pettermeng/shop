@@ -6,6 +6,7 @@
         <title>Register</title>
         <link rel="stylesheet" href="assets/css/theme.css">
         <?php include "component/external-css-import.php" ?>
+        <?php include "function.php" ?>
     </head>
     <body>
         <section class="login-register">
@@ -16,8 +17,8 @@
                         <input type="text" name="username" class="box">
                     </div>
                     <div class="block">
-                        <label>Email</label>
-                        <input type="text" name="email" class="box">
+                        <label>Phone</label>
+                        <input type="text" name="phone" class="box">
                     </div>
                     <div class="block">
                         <label>Password</label>
