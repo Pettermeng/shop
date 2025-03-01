@@ -79,17 +79,21 @@
         global $con;
         if(isset($_POST['btn-add-general'])) {
             $shipping_fee = $_POST['shipping_fee'];
+
+            $main_banner      = $_FILES['main_banner'];
+            $main_banner_name = move_file($main_banner);
             
             $header_logo      = $_FILES['header_logo'];
             $header_logo_name = move_file($header_logo);
 
             $footer_logo      = $_FILES['footer_logo'];
             $footer_logo_name = move_file($footer_logo);
+            
             $date = date('Y-m-d');
             
             $sql = "
-                INSERT INTO `general`(`header_logo`, `footer_logo`, `shipping_fee`, `created_at`, `updated_at`) 
-                VALUES ('". $header_logo_name ."', '". $footer_logo_name ."', '". $shipping_fee ."', '". $date ."', '". $date ."' )
+                INSERT INTO `general`(`banner`, `header_logo`, `footer_logo`, `shipping_fee`, `created_at`, `updated_at`) 
+                VALUES ('". $main_banner_name ."','". $header_logo_name ."', '". $footer_logo_name ."', '". $shipping_fee ."', '". $date ."', '". $date ."' )
             ";
 
             $result = $con->query($sql);
@@ -172,5 +176,63 @@
         }
     }
     remove_post();
+
+    // Insert category
+    function insert_category() {
+        global $con;
+        if(isset($_POST['btn-add-category'])) {
+            $name = $_POST['name'];
+            $image = $_FILES['image'];
+            $image_name = move_file($image);
+            $date = date('Y-m-d');
+            
+            $sql = "
+                INSERT INTO `category`(`name`, `image`, `created_at`, `updated_at`) 
+                VALUES ('". $name ."', '". $image_name ."', '". $date ."', '". $date ."' )
+            ";
+            $result = $con->query($sql);
+            if($result) {
+                echo 'Post inserted';
+            }
+        }
+    }
+    insert_category();
+
+    // Get category
+    function get_category() {
+        global $con;
+        $sql = "SELECT * FROM category ORDER BY id DESC";
+        $result = $con->query($sql);
+        return $result;
+    }
+
+    // Insert Product
+    function insert_product() {
+        global $con;
+        if(isset($_POST['btn-add-product'])) {
+            $name = $_POST['name'];
+            $qty = $_POST['qty'];
+            $regular_price = $_POST['regular_price'];
+            $sale_price = $_POST['sale_price'];
+            $size = $_POST['size'];
+            $color = $_POST['color'];
+            $category = $_POST['category'];
+            $description = $_POST['description'];
+            $image = $_FILES['image'];
+            $image_name = move_file($image);
+            $date = date('Y-m-d');
+            $user_id = $_SESSION['user_id'];
+            
+            $sql = "
+                INSERT INTO `product`(`name`, `qty`, `regular_price`, `sale_price`, `size`, `color`, `category_id`, `author_id`, `image`, `is_deleted`, `description`, `created_at`, `updated_at`) 
+                VALUES ('".$name."', ".$qty.", ".$regular_price.", ".$sale_price.", '".$size."', '".$color."', ".$category.", ".$user_id.", '".$image_name."', 1, '".$description."','".$date."','".$date."' )
+            ";
+            $result = $con->query($sql);
+            if($result) {
+                echo 'Post Inserted';
+            }
+        }
+    }
+    insert_product();
 
 ?>

@@ -19,6 +19,10 @@
                             <input type="text" name="shipping_fee" class="form-control" placeholder="Shipping Fee ($)">
                         </div>
                         <div class="col-12">
+                            <label for="image">Main Banner</label>
+                            <input type="file" name="main_banner" class="form-control">
+                        </div>
+                        <div class="col-12">
                             <label for="image">Header Logo</label>
                             <input type="file" name="header_logo" class="form-control">
                         </div>

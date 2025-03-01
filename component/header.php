@@ -1,3 +1,4 @@
+<?php include 'function.php' ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,7 +18,12 @@
             <div class="container d-flex align-items-center justify-content-between">
                 <div class="logo">
                     <a href="/project">
-                        <img src="https://placehold.co/150x60" alt="">
+                        <?php 
+                            $logo = get_general_setting();
+                            echo '
+                                <img src="../shop/admin/assets/upload/'. $logo['header_logo'] .'" alt="" style="width: 120px">
+                            ';
+                        ?>
                     </a>
                 </div>
                 <ul class=" d-flex align-items-center justify-content-between gap-5">

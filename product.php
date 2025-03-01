@@ -1,4 +1,23 @@
-<?php include 'component/header.php'; ?>
+<?php 
+    include 'component/header.php'; 
+    $post_id = $_GET['post'];
+    $product = get_product_by_id($post_id);
+
+    $sale_price = $product['sale_price'];
+    if($sale_price > 0) {
+        $price_status = '
+            <h5 class="regular-price text-red fw-500">
+                <strike>US $'.$product['regular_price'].'</strike>
+            </h5>
+            <h5 class="sale-price fw-500">US $'.$product['sale_price'].'</h5>
+        ';
+    }
+    else {
+        $price_status = '
+            <h5 class="sale-price fw-500">US $'.$product['regular_price'].'</h5>
+        ';
+    }
+?>
 
 <main>
     <section>
@@ -11,13 +30,10 @@
                 </div>
                 <div class="col-6">
                     <figcaption class="py-3">
-                        <h2>Loose Fit T-Shirts</h2>
+                        <h2><?php echo $product['name'] ?></h2>
                         <hr>
                         <div class="d-flex gap-3 mb-2">
-                            <h5 class="regular-price text-red fw-500">
-                               <strike>US $25</strike>
-                            </h5>
-                            <h5 class="sale-price fw-500">US $15</h5>
+                            <?php echo $price_status; ?>
                         </div>
                         <hr>
                         <div class="cart-variant">
@@ -25,12 +41,12 @@
                                 <h6>Color Available</h6>
                                 <ul class="color">
                                     <li>
-                                        <div class="circle mb-1" style="background: red;"></div>
+                                        <div class="circle mb-1" style="background: <?php echo $product['color'] ?>;"></div>
                                     </li>
                                 </ul>
                                 <h6>Size Available</h6>
                                 <ul>
-                                    <li>M</li>
+                                    <li><?php echo $product['size'] ?></li>
                                 </ul>
                             </div>
                             <div class="cart">
@@ -43,9 +59,7 @@
                         </div>
                         <hr>
                         <h4>Product Description</h4>
-                        <div>
-                        Aenean eget placerat tellus. In luctus ipsum nec tortor cursus lacinia. Pellentesque pellentesque eget lacus at feugiat. Mauris condimentum, est et venenatis vulputate, risus ipsum congue erat, eget pretium ex arcu et velit. Fusce enim dui, sagittis vitae porta a, sodales non massa. Aliquam gravida arcu sit amet justo pellentesque eleifend. Sed dictum erat a ipsum tempor imperdiet. Vivamus euismod ex pulvinar metus vestibulum, eu sodales lectus iaculis. Morbi ultricies, ligula eu sagittis scelerisque, enim elit venenatis turpis, non efficitur magna nibh sit amet urna. Etiam quis aliquet velit.
-                        </div>
+                        <div><?php echo $product['description'] ?></div>
                     </figcaption>
                 </div>
             </div>

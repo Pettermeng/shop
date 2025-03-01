@@ -18,7 +18,12 @@
 <div class="container py-4">
     <div class="top d-flex justify-content-center">
         <a href="">
-            <img src="https://placehold.co/150" alt="">
+            <?php 
+                $footer = get_general_setting();
+                echo '
+                    <img src="../shop/admin/assets/upload/'. $footer['footer_logo'] .'" alt="" class="rounded-1 w-100">
+                ';
+            ?>
         </a>
     </div>
     <hr>
