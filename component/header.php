@@ -42,8 +42,19 @@
                         <a href="cart.php" class="">
                             <img src="assets/image/cart.svg" alt="">
                         </a>
-                        <a href="account.php" class="user-account">Account</a>
-                        <a href="login.php" class="user-account">Login | Register</a>
+                        <?php
+                            if(empty($_SESSION['user_id'])) {
+                                echo '
+                                    <a href="login.php" class="user-account">Login | Register</a>
+                                ';
+                            }
+                            else {
+                                echo '
+                                    <a href="account.php" class="user-account">Account</a>
+                                    <a href="cart.php" class="user-account">Cart</a>
+                                ';
+                            }
+                        ?>
                     </div>
                     <div class="search">
                         <img src="assets/image/search.svg" alt="">

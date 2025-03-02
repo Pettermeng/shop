@@ -3,12 +3,12 @@
 <!-- search popup -->
 <div class="search-popup">
     <div class="block d-flex flex-column justify-content-center align-items-center">
-        <form action="get" method="post" class="d-flex flex-column gap-2 rounded-1">
+        <form action="search.php" method="get" class="d-flex flex-column gap-2 rounded-1">
             <div class="cancel d-flex justify-content-end">
                 <img src="assets/image/cancel.svg" alt="" class="close">
             </div>
-            <input type="text" class="box" placeholder="Search">
-            <button type="submit">
+            <input type="text" name="search" class="box" placeholder="Search">
+            <button type="submit" name="btn-search">
                 Search Here
             </button>
         </form>

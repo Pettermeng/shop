@@ -49,7 +49,6 @@
             else {
                 echo 'Invalid user';
             }
-
         }
     } 
     login_admin();

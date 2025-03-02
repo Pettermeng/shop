@@ -18,34 +18,27 @@
                     </nav>
 
                     <div class="message-box mt-4">
-                        <div class="alert-msg success d-none">
-                            Account Create Successfully!
-                        </div>
-                        <div class="alert-msg error">
-                            Account Create Failed!
-                        </div>
+                        <?php echo customer_register_account() ?>
                     </div>
                     
                     <!-- Form Login -->
                     <form action="" method="post" class="login-form">
-                        <label for="" class="mb-1">Phone | Email</label>
-                        <input type="text" class="box rounded-1 p-2 mb-3">
+                        <label for="" class="mb-1">Phone | Username</label>
+                        <input type="text" name="phone_username" class="box rounded-1 p-2 mb-3">
                         <label for="" class="mb-1">Password</label>
-                        <input type="password" class="box rounded-1 p-2 mb-3">
-                        <button type="submit" class="p-2 mt-1 rounded-1">Login</button>
+                        <input type="password" name="password" class="box rounded-1 p-2 mb-3">
+                        <button type="submit" name="btn-user-login" class="p-2 mt-1 rounded-1">Login</button>
                     </form>
 
                     <!-- Form Register -->
                     <form action="" method="post" class="register-form">
                         <label for="" class="mb-1">Username</label>
-                        <input type="text" class="box rounded-1 p-2 mb-3">
+                        <input type="text" name="username" class="box rounded-1 p-2 mb-3">
                         <label for="" class="mb-1">Phone Number</label>
-                        <input type="tel" class="box rounded-1 p-2 mb-3">
-                        <label for="" class="mb-1">Email</label>
-                        <input type="email" class="box rounded-1 p-2 mb-3">
+                        <input type="tel" name="phone" class="box rounded-1 p-2 mb-3">
                         <label for="" class="mb-1">Password</label>
-                        <input type="password" class="box rounded-1 p-2 mb-3">
-                        <button type="submit" class="p-2 mt-1 rounded-1">Register</button>
+                        <input type="password" name="password" class="box rounded-1 p-2 mb-3">
+                        <button type="submit" name="btn-user-register" class="p-2 mt-1 rounded-1">Register</button>
                     </form>
 
                 </div>

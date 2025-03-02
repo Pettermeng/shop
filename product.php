@@ -11,11 +11,13 @@
             </h5>
             <h5 class="sale-price fw-500">US $'.$product['sale_price'].'</h5>
         ';
+        $product_price = $product['sale_price'];
     }
     else {
         $price_status = '
             <h5 class="sale-price fw-500">US $'.$product['regular_price'].'</h5>
         ';
+        $product_price = $product['regular_price'];
     }
 ?>
 
@@ -25,7 +27,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="thumbnail">
-                        <img src="assets/image/card-thumbnail-01.jpg" alt="">
+                        <img src="/shop/admin/assets/upload/<?php echo $product['image'] ?>" alt="">
                     </div>
                 </div>
                 <div class="col-6">
@@ -51,9 +53,10 @@
                             </div>
                             <div class="cart">
                                 <form action="" method="post">
-                                    <input type="hidden" name="product-id" value="1">
-                                    <input type="number" class="qty" name="quantity" value="1" min="1">
-                                    <input type="submit" class="add-cart" value="Add to Cart">
+                                    <input type="hidden" name="product-id" value="<?php echo $product['id'] ?>">
+                                    <input type="hidden" name="product-price" value="<?php echo $product_price ?>">
+                                    <input type="number" class="qty" name="qty" value="1" min="1">
+                                    <input type="submit" name="btn-add-cart" class="add-cart" value="Add to Cart">
                                 </form>
                             </div>
                         </div>
