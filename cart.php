@@ -9,7 +9,7 @@
             <div class="row">
                 <?php
                     $product =  get_cart_by_user();
-                    foreach($product as $product_value) {
+                    foreach($product['product'] as $product_value) {
                         echo '
                             <div class="col-12 d-flex align-items-center justify-content-between">
                                 <figure class="d-flex align-items-center gap-3">
@@ -18,8 +18,8 @@
                                 </figure>
                                 <figcaption class="d-flex align-items-center gap-3">
                                     <form action="" method="post">
-                                        <input type="hidden" name="cart_id" value="1">
-                                        <button type="submit">
+                                        <input type="hidden" name="product_id" value="'.$product_value['id'].'">
+                                        <button type="submit" name="btn-remove-cart">
                                             <img src="assets/image/cancel.svg" alt="">
                                         </button>
                                     </form>

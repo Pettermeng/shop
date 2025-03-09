@@ -12,6 +12,12 @@
                     <hr>
                     <h3>Your Order</h3>
                     <ul class="mt-4 list-order">
+                        <?php
+                            $order = order_history();
+                            while($row = mysqli_fetch_assoc($order)) {
+                                
+                            }
+                        ?>
                         <li>
                             <div class="order-item d-flex align-items-center justify-content-between" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                                 <h5 class="m-0">#INV-0001</h5>

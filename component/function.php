@@ -234,7 +234,9 @@
         
         if($exist_cart > 0) {
             $row_cart = mysqli_fetch_assoc($result_cart);
-            $cart_id  = $row_cart['id'];
+            $cart_id      = $row_cart['id'];
+            $shipping_fee = $row_cart['shipping_fee'];
+            $cart_total   = $row_cart['total'];
             
             // get cart item by cart id
             $sql_cart_item    = "SELECT * FROM cart_item WHERE cart_id = $cart_id";
@@ -249,10 +251,170 @@
                     $arr_product[] = $row_product;
                 }
             }
-            return $arr_product;
+            return array(
+                'cart_id'      => $cart_id,
+                'cart_total'   => $cart_total,
+                'shipping_fee' => $shipping_fee,
+                'product'      => $arr_product
+            );
         }
         else {
             echo 'No products in cart';
+        }
+    }
+
+    // Remove cart items
+    function remove_cart_item() {
+        global $con;
+        if(isset($_POST['btn-remove-cart'])) {
+            $user_id    = $_SESSION['user_id'];
+            $product_id = $_POST['product_id'];
+
+            // get cart id
+            $sql_cart    = "SELECT id, total FROM cart WHERE user_id = $user_id";
+            $result_cart = $con->query($sql_cart);
+            $row_cart    = mysqli_fetch_assoc($result_cart);
+            $cart_id     = $row_cart['id'];
+
+            // remove cart items
+            $sql_item    = "DELETE FROM cart_item WHERE cart_id = $cart_id AND product_id = $product_id";
+            $result_item = $con->query($sql_item);
+
+            // recaculate cart total amount
+            $cart_total_amount = $row_cart['total'];
+            $sql_product    = "SELECT regular_price, sale_price FROM product WHERE id = $product_id";
+            $result_product = $con->query($sql_product);
+            $row_product    = mysqli_fetch_assoc($result_product);
+
+            if($row_product['sale_price'] > 0) {
+                $product_price = $row_product['sale_price'];
+            }
+            else {
+                $product_price = $row_product['regular_price'];
+            }
+            
+            $cart_amount = $cart_total_amount - $product_price;
+            $sql_update_cart = "UPDATE `cart` SET `total`= $cart_amount WHERE id = $cart_id";
+            $con->query($sql_update_cart);
+
+            if($result_item) {
+                echo 'Product removed from cart!';
+            }
+
+        }
+    }
+    remove_cart_item();
+
+    // save address
+    function save_address() {
+        global $con;
+        if(isset($_POST['btn-save-address'])) {
+            $name    = $_POST['name'];
+            $phone   = $_POST['phone'];
+            $address = $_POST['address'];
+            $user_id = $_SESSION['user_id'];
+            $date    = date('Y-m-d');
+
+            $sql     = "SELECT * FROM shipping_address WHERE user_id = $user_id";
+            $result  = $con->query($sql);
+            $exist   = mysqli_num_rows($result);
+            if($exist > 0) {
+                $sql_update_address = "
+                    UPDATE `shipping_address` SET `name`='".$name."',`phone`='".$phone."',`location`='".$address."',`updated_at`='".$date."' WHERE user_id = $user_id
+                ";
+                $con->query($sql_update_address);
+            }
+            else {
+                $sql_address = "
+                    INSERT INTO `shipping_address`(`user_id`, `name`, `phone`, `location`, `created_at`, `updated_at`) 
+                    VALUES (".$user_id.",'".$name."','".$phone."','".$address."','".$date."','".$date."')
+                ";
+                $con->query($sql_address);
+            }
+
+        }
+    }
+    save_address();
+
+    // get user address
+    function user_address() {
+        global $con;
+        $user_id = $_SESSION['user_id'];
+        $sql     = "SELECT * FROM shipping_address WHERE user_id = $user_id";
+        $result  = $con->query($sql);
+        $row     = mysqli_fetch_assoc($result);
+        return $row;
+    }
+
+    // user checkout
+    function user_checkout() {
+        global $con;
+        if(isset($_POST['btn-placeorder'])) {
+            //  cart info
+            $cart    = get_cart_by_user();
+            $shipping_fee = $cart['shipping_fee'];
+            $cart_total   = $cart['cart_total'];
+
+            $order_status = 'processing';
+            $user_id      = $_SESSION['user_id'];
+            $invoice      = 'inv-'.rand(1111,9999);
+            $date         = date('Y-m-d');
+
+            $sql_order = "
+                INSERT INTO `order_product`(`invoice_id`, `user_id`, `shipping_fee`, `order_status`, `total`, `created_at`, `updated_at`) 
+                VALUES ('".$invoice."',".$user_id.",".$shipping_fee.",'".$order_status."',".$cart_total.",'".$date."','".$date."')
+            ";  
+            $con->query($sql_order);
+            $order_id = $con->insert_id;
+
+            if($order_id) {
+                $cart_id  = $cart['cart_id'];
+                $sql_item = "SELECT * FROM cart_item WHERE cart_id = $cart_id";
+                $rs_item  = $con->query($sql_item);
+                while($row = mysqli_fetch_assoc($rs_item)) {
+                    $product_id  = $row['product_id'];
+                    $product_qty = $row['qty'];
+
+                    $sql_order_item = "
+                        INSERT INTO `order_item`(`order_id`, `product_id`, `qty`) 
+                        VALUES (".$order_id.", ".$product_id.",".$product_qty.")
+                    ";
+                    $rs_order_item = $con->query($sql_order_item);
+                    if($rs_order_item) {    
+                        header('Location: success.php');
+                    }
+                }
+
+                // remove cart & cart items
+                $sql_remove_cart = "DELETE FROM cart WHERE id = $cart_id";
+                $con->query($sql_remove_cart);
+                $sql_remove_cart_item = "DELETE FROM cart_item WHERE cart_id = $cart_id";
+                $con->query($sql_remove_cart_item);
+            }
+        }
+    }
+    user_checkout();
+
+    // get order history
+    function order_history() {
+        global $con;
+        $user_id = $_SESSION['user_id'];
+        $sql = "SELECT * FROM `order_product` WHERE user_id = $user_id ORDER BY id DESC";
+        $rs  = $con->query($sql);
+        return $rs;
+    }
+
+    // get product by order id
+    function get_produc_by_order_id($order_id) {
+        global $con;
+        $sql = "SELECT * FROM `order_item` WHERE order_id = $order_id";
+        $rs  = $con->query($sql);
+        while($row = mysqli_fetch_assoc($rs)) {
+            $product_id  = $row['product_id'];
+            $sql_product = "SELECT * FROM product WHERE id = $product_id";
+            $rs_product  = $con->query($sql_product);
+            $row_product = mysqli_fetch_assoc($rs_product);
+             
         }
     }
 
