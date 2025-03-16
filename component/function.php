@@ -405,17 +405,19 @@
     }
 
     // get product by order id
-    function get_produc_by_order_id($order_id) {
+    function get_product_by_order_id($order_id) {
         global $con;
-        $sql = "SELECT * FROM `order_item` WHERE order_id = $order_id";
+        $sql = "
+            SELECT order_item.*, product.name, product.sale_price, product.regular_price
+            FROM order_item INNER JOIN product
+            ON order_item.product_id = product.id
+            WHERE order_item.order_id = $order_id
+        ";
         $rs  = $con->query($sql);
         while($row = mysqli_fetch_assoc($rs)) {
-            $product_id  = $row['product_id'];
-            $sql_product = "SELECT * FROM product WHERE id = $product_id";
-            $rs_product  = $con->query($sql_product);
-            $row_product = mysqli_fetch_assoc($rs_product);
-             
+            $order_item[] = $row;
         }
+        return $order_item;
     }
 
 ?>

@@ -234,4 +234,73 @@
     }
     insert_product();
 
+    // get list order
+    function get_order() {
+        global $con;
+        $sql = "
+            SELECT order_product.*, user.name
+            FROM order_product INNER JOIN user
+            ON order_product.user_id = user.id
+            ORDER BY order_product.id DESC
+        ";
+        $rs = $con->query($sql);
+        return $rs;
+    }
+
+    function get_order_info($order_id) {
+        global $con;
+        $sql = "
+            SELECT 
+                order_product.invoice_id, 
+                order_product.shipping_fee, 
+                order_product.total, 
+                order_product.order_status,
+                shipping_address.name, 
+                shipping_address.phone, 
+                shipping_address.location
+            FROM 
+                order_product 
+                INNER JOIN user ON order_product.user_id = user.id
+                INNER JOIN shipping_address ON shipping_address.user_id = user.id
+            WHERE 
+                order_product.id = $order_id
+        ";
+        $rs = $con->query($sql);
+        while($row = mysqli_fetch_assoc($rs)) {
+            return $row;
+        }
+    }
+
+    function get_list_order_item($order_id) {
+        global $con;
+        $sql = "
+            SELECT order_item.*, product.name, product.sale_price, product.regular_price
+            FROM order_item INNER JOIN product
+            ON order_item.product_id = product.id
+            WHERE order_item.order_id = $order_id
+        ";
+        $rs  = $con->query($sql);
+        while($row = mysqli_fetch_assoc($rs)) {
+            $order_item[] = $row;
+        }
+        return $order_item;
+    }
+
+    // action confim - reject order
+    function confirm_reject_order() {
+        global $con;
+        if(isset($_POST['btn-confirm']) || isset($_POST['btn-reject'])) {
+            $order_id = $_POST['order_id'];
+            if(isset($_POST['btn-confirm'])) {
+                $status = 'complete';
+            }
+            if(isset($_POST['btn-reject'])) {
+                $status = 'cancel';
+            }
+            $sql = "UPDATE `order_product` SET `order_status`='".$status."' WHERE id = $order_id";
+            $con->query($sql);
+        }
+    }
+    confirm_reject_order();
+
 ?>

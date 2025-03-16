@@ -15,13 +15,11 @@
                         <?php
                             $order = order_history();
                             while($row = mysqli_fetch_assoc($order)) {
-                                
-                            }
                         ?>
                         <li>
                             <div class="order-item d-flex align-items-center justify-content-between" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                <h5 class="m-0">#INV-0001</h5>
-                                <h6 class="m-0">Status: Processing</h6>
+                                <h5 class="m-0">#<?php echo $row['invoice_id'] ?></h5>
+                                <h6 class="m-0">Status: <?php echo $row['order_status'] ?></h6>
                             </div>
                             <div class="collapse" id="collapseExample">
                                 <table border="1px">
@@ -32,24 +30,39 @@
                                         <th>Sub Total</th>
                                     </tr>
                                     <?php
-                                        for($i=0; $i<5; $i++){
-                                            echo '
-                                                <tr>
-                                                    <td>T-Short 001</td>
-                                                    <td>2</td>
-                                                    <td>$12</td>
-                                                    <td>$24</td>
-                                                </tr>
-                                            ';
+                                       $order_item = get_product_by_order_id($row['id']);
+                                       foreach($order_item as $value) {
+
+                                        if($value['sale_price'] > 0) {
+                                            $price = $value['sale_price'];
                                         }
+                                        else {
+                                            $price = $value['regular_price'];
+                                        }
+
+                                        $sub_total = $value['qty'] * $price;
+
+                                        echo '
+                                            <tr>
+                                                <td>'.$value['name'].'</td>
+                                                <td>'.$value['qty'].'</td>
+                                                <td>$'.$price.'</td>
+                                                <td>$'.$sub_total.'</td>
+                                            </tr>
+                                        ';
+                                       }
                                     ?>
                                 </table>
                                 <div class="d-flex flex-column align-items-end justify-content-end gap-2 py-3">
-                                    <h6 class="m-0">Shipping Fee: $1</h6>
-                                    <h6 class="m-0">Total: $120</h6>
+                                    <h6 class="m-0">Shipping Fee: $<?php echo $row['shipping_fee'] ?></h6>
+                                    <h6 class="m-0">Total: $<?php echo $row['total'] ?></h6>
                                 </div>
                             </div>
                         </li>
+                        <?php
+                            }
+                        ?>
+
                     </ul>
                 </div>
             </div>
